@@ -6,7 +6,7 @@
 #    By: maduhoux <maduhoux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 15:54:41 by maduhoux          #+#    #+#              #
-#    Updated: 2017/11/22 15:54:42 by maduhoux         ###   ########.fr        #
+#    Updated: 2017/11/22 16:17:39 by maduhoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	make -C libft/
 	gcc -o $(NAME) $(OBJ) -Llibft -lft
+
+maintest: $(OBJ)
+	make -C libft/
+	gcc -o $(NAME) $(OBJ) main/main_test_error.c -I $(INCLUDE) -Llibft -lft
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p $(OBJDIR)

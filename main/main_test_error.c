@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_test_error.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 13:54:07 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 13:58:25 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/22 16:17:54 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	inti;
-	intlala;
-	char*str;
-	char*iterst;
+	int		i;
+	int		lala;
+	char	*str;
+	char	*iterst;
 
 	i = 0;
 	if (argc == 1)
