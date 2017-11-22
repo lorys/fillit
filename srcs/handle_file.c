@@ -6,11 +6,11 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/19 10:53:21 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 14:00:19 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/22 16:06:04 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 char	*read_file(char *filepath)
 {

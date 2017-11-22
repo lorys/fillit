@@ -6,11 +6,11 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 15:57:24 by maduhoux         ###   ########.fr       */
+/*   Updated: 2017/11/22 17:20:00 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 #include <stdio.h>
 
 static int	inttab(char **tab)
@@ -70,10 +70,10 @@ int		*read_piece(int i, char **map)
 		{
 			if (map[((i * 4) - 4) + y][x] == '#')
 			{
-				min_x = (min_x == -1)?x:min_x;
-				min_x = (min_x > x)?x:min_x;
-				min_y = (min_y == -1)?y:min_y;
-				min_y = (min_y > y)?y:min_y;
+				min_x = (min_x == -1) ? x : min_x;
+				min_x = (min_x > x) ? x : min_x;
+				min_y = (min_y == -1) ? y : min_y;
+				min_y = (min_y > y) ? y : min_y;
 				coords[coords_i] = x;
 				coords[coords_i + 1] = y;
 				coords_i += 2;

@@ -6,23 +6,13 @@
 /*   By: maduhoux <maduhoux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 07:44:32 by maduhoux          #+#    #+#             */
-/*   Updated: 2017/11/21 09:18:14 by maduhoux         ###   ########.fr       */
+/*   Updated: 2017/11/22 16:06:37 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/fillit.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef	struct	s_int
-{
-	int			i;
-	int			length;
-	int			height;
-	int			diez;
-	int			max_tetrimino;
-	int			diez_counter;
-	int			diez_max;
-}				t_int;
 
 static int		diez_finder(char *content, int i, int x, int y)
 {
