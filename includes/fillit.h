@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 02:02:58 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 14:00:17 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/22 15:57:10 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+
+#include "../libft/libft.h"
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>

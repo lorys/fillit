@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   resolve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 12:21:32 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/22 15:57:24 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "fillit.h"
 #include <stdio.h>
 
