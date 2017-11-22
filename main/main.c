@@ -10,38 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include <stdio.h>
-#include "fillit.h"
+#include "../includes/fillit.h"
 
-
+int		system(char const *command);
 
 int		main(int argc, char **argv)
 {
-	int		*tab;
+	char		**map;
+	int		*pieces;
 	int		x;
 	int		y;
-	int		coords_i;
+	int		max_try;
 
+	x = 0;
 	y = 0;
-	tab = read_piece(ft_atoi(argv[2]), ft_strsplit(read_file(argv[1]), '\n'));
-	coords_i = 0;
-	while (y < 4)
+	max_try = 30;
+	map = map_generator(ft_strsplit(read_file(argv[1]), '\n'));
+	pieces = read_piece(1, map);
+	display_map(map);
+	ft_putstr("\n------------------------------------\n");
+	while (map[y] != NULL)
 	{
-		x = 0;
-		while (x < 4)
+		while (map[y][x] != '\0')
 		{
-			if (x == tab[coords_i] && y == tab[coords_i + 1])
-			{
-				printf("#");
-				coords_i += 2;
-			}
-			else
-				printf(".");
+			put_piece(5, 8, pieces, map);
+			display_map(map);
 			x++;
 		}
 		y++;
-		printf("\n");
 	}
 	return (0);
 }

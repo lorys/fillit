@@ -91,3 +91,19 @@ int		*read_piece(int i, char **map)
 	}
 	return (coords);
 }
+
+char		**put_piece(int x, int y, int *piece, char **map)
+{
+	int	i;
+
+	i = 0;
+	while (i < 8)
+	{
+		if (map[y + piece[i + 1]][x + piece[i]] != '.' || map[y + piece[i + 1]][x + piece[i]] == '\0')
+				return (NULL);
+		else
+			map[y + piece[i + 1]][x + piece[i]] = '#';
+		i = i + 2;
+	}
+	return (map);
+}

@@ -12,7 +12,7 @@
 
 #include "../includes/fillit.h"
 
-char	*display_map(char **map)
+void	display_map(char **map)
 {
 	int		y;
 	int		x;
@@ -24,11 +24,10 @@ char	*display_map(char **map)
 		x = 0;
 		while (map[y][x] != '\0')
 		{
-			ft_putchar(map[y][x]);
+			ft_putchar((char)map[y][x]);
 			x++;
 		}
 		y++;
-		ft_putchar("\n");
+		ft_putchar('\n');
 	}
-	return (0);
 }

@@ -34,5 +34,7 @@ char			**map_generator(char **map);
 char			*read_file(char *filepath);
 int				*read_piece(int i, char **map);
 int				check_pieces(char *content);
+char				**put_piece(int x, int y, int *piece, char **map);
+void				display_map(char **map);
 
 #endif
