@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 02:02:58 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 15:57:10 by maduhoux         ###   ########.fr       */
+/*   Updated: 2017/11/22 16:09:57 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef	struct	s_int
 {
 	int			i;
-	int			lenght;
+	int			length;
 	int			height;
 	int			diez;
 	int			max_tetrimino;
