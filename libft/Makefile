@@ -72,7 +72,8 @@ SOURCES = ft_atoi.c \
 		  ft_lstadd.c \
 		  ft_lstiter.c \
 		  ft_lstmap.c \
-		  ft_realloc.c
+		  ft_realloc.c \
+		  ft_sqrt.c
 
 OBJ = $(SOURCES:%.c=$(OBJDIR)%.o)
 
