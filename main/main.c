@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 10:06:09 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/23 10:36:10 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,25 @@ int		main(int argc, char **argv)
 	int		x;
 	int		y;
 	int		max_try;
+	char		**pieces_map;
 
 	x = 0;
-	y = 0;
 	max_try = 30;
-	map = map_generator(ft_strsplit(read_file(argv[1]), '\n'));
-	pieces = read_piece(1, map);
+	pieces_map = ft_strsplit(read_file(argv[1]), '\n');
+	map = map_generator(pieces_map);
+	pieces = read_piece(ft_atoi(argv[2]), pieces_map);
 	display_map(map);
 	ft_putstr("\n------------------------------------\n");
 	while (map[y] != NULL)
 	{
+		x = 0;
 		while (map[y][x] != '\0')
 		{
-			put_piece(5, 8, pieces, map);
+			system("sleep 1");
+			system("clear");
+			clear_map(map);
+			map[10][5] = '#';
+			put_piece(x, y, pieces, map);
 			display_map(map);
 			x++;
 		}

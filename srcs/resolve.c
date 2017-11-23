@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 17:20:00 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/23 10:40:16 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ char		**map_generator(char **map)
 	newmap = (char **)malloc(sizeof(char *) * (map_len + 1));
 	newmap[map_len] = NULL;
 	i = 0;
-	while (i < map_len)
+	while (i < (map_len / 2))
 	{
 		x = 0;
 		newmap[i] = (char *)malloc(sizeof(char) * (map_len + 1));
-		while (x < map_len)
+		while (x < (map_len / 2))
 		{
 			newmap[i][x] = '.';
 			x++;
@@ -99,10 +99,16 @@ char		**put_piece(int x, int y, int *piece, char **map)
 	i = 0;
 	while (i < 8)
 	{
-		if (map[y + piece[i + 1]][x + piece[i]] != '.' || map[y + piece[i + 1]][x + piece[i]] == '\0')
-				return (NULL);
-		else
-			map[y + piece[i + 1]][x + piece[i]] = '#';
+		if (map[y + piece[i + 1]][x + piece[i]] != '.' \
+				|| map[y + piece[i + 1]][x + piece[i]] == '\0' \
+				|| map[y + piece[i + 1]] == NULL)
+			return (NULL);
+		i++;
+	}
+	i = 0;
+	while (i < 8)
+	{
+		map[y + piece[i + 1]][x + piece[i]] = '#';
 		i = i + 2;
 	}
 	return (map);

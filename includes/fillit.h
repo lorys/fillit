@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 02:02:58 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 16:09:57 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/23 10:17:14 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int				*read_piece(int i, char **map);
 int				check_pieces(char *content);
 char				**put_piece(int x, int y, int *piece, char **map);
 void				display_map(char **map);
+char				**clear_map(char **map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 17:02:14 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/22 17:19:58 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/23 10:17:30 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,24 @@ void	display_map(char **map)
 		y++;
 		ft_putchar('\n');
 	}
+}
+
+char		**clear_map(char **map)
+{
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	while (map[y] != NULL)
+	{
+		x = 0;
+		while (map[y][x] != '\0')
+		{
+			map[y][x] = '.';
+			x++;
+		}
+		y++;
+	}
+	return (map);
 }
