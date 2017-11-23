@@ -51,3 +51,24 @@ char		**clear_map(char **map)
 	}
 	return (map);
 }
+
+char		**clear_piece(int *piece, char **map)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (map[y] != NULL)
+	{
+		x = 0;
+		while (map[y][x] != '\0')
+		{
+			if (map[y][x] == (piece[8] + 64))
+				map[y][x] = '.';
+			x++;
+		}
+		y++;
+	}
+	return (map);
+}

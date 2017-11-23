@@ -30,15 +30,15 @@ char		**map_generator(char **map)
 	int		map_len;
 	int		x;
 
-	map_len = inttab(map);
+	map_len = ft_sqrt(inttab(map));
 	newmap = (char **)malloc(sizeof(char *) * (map_len + 1));
 	newmap[map_len] = NULL;
 	i = 0;
-	while (i < (map_len / 2))
+	while (i < map_len)
 	{
 		x = 0;
 		newmap[i] = (char *)malloc(sizeof(char) * (map_len + 1));
-		while (x < (map_len / 2))
+		while (x < map_len)
 		{
 			newmap[i][x] = '.';
 			x++;
@@ -61,8 +61,9 @@ int		*read_piece(int i, char **map)
 	y = 0;
 	min_x = -1;
 	min_y = -1;
-	coords = (int *)malloc(sizeof(int) * 8);
+	coords = (int *)malloc(sizeof(int) * 9);
 	coords_i = 0;
+	coords[8] = i;
 	while (y < 4)
 	{
 		x = 0;
@@ -95,7 +96,9 @@ int		*read_piece(int i, char **map)
 char		**put_piece(int x, int y, int *piece, char **map)
 {
 	int	i;
+	int	max;
 
+	max = ft_sqrt(inttab(map));
 	i = 0;
 	while (i < 8)
 	{
@@ -103,12 +106,12 @@ char		**put_piece(int x, int y, int *piece, char **map)
 				|| map[y + piece[i + 1]][x + piece[i]] == '\0' \
 				|| map[y + piece[i + 1]] == NULL)
 			return (NULL);
-		i++;
+		i = i + 2;
 	}
 	i = 0;
 	while (i < 8)
 	{
-		map[y + piece[i + 1]][x + piece[i]] = '#';
+		map[y + piece[i + 1]][x + piece[i]] = piece[8] + 64;
 		i = i + 2;
 	}
 	return (map);
