@@ -37,5 +37,6 @@ int				check_pieces(char *content);
 char				**put_piece(int x, int y, int *piece, char **map);
 void				display_map(char **map);
 char				**clear_map(char **map);
+char				**clear_piece(int *piece, char **map);
 
 #endif
