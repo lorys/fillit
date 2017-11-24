@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/24 17:28:52 by mduhoux                                  */
+/*   Updated: 2017/11/24 18:39:10 by mduhoux                                  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int		main(int argc, char **argv)
 	int		y;
 	char		**pieces_map;
 	int		count_piece;
+	int		x_last;
+	int		y_last;
 
 	count_piece = 1;
 	pieces_map = ft_strsplit(read_file(argv[1]), '\n');
@@ -40,11 +42,14 @@ int		main(int argc, char **argv)
 			x = 0;
 			while (map[y][x] != '\0' && x <= ft_strlen(map[y]) - pieces[9])
 			{
-				usleep(100000);
+				usleep(60000);
 				system("clear");
 				clear_piece(pieces, map);
-				if (put_piece(x, y, pieces, map) == NULL)
-					usleep(2000000);
+				if (put_piece(x, y, pieces, map) != NULL)
+				{
+					x_last = x;
+					y_last = y;
+				}
 				display_map(map);
 				printf("x : %d\ny : %d\ntabmap : %d\n", x, y, inttab(map));
 				printf("max_y : %d\nmax_x : %d\n", (pieces[10]), (pieces[9]));
@@ -52,6 +57,7 @@ int		main(int argc, char **argv)
 			}
 			y++;
 		}
+		put_piece(x_last, y_last, pieces, map);
 		count_piece++;
 	}
 	return (0);

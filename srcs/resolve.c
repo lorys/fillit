@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/24 17:05:35 by mduhoux                                  */
+/*   Updated: 2017/11/24 18:23:15 by mduhoux                                  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ int		*read_piece(int i, char **map)
 				min_y = (min_y == -1) ? y : min_y;
 				min_y = (min_y > y) ? y : min_y;
 
-				x_max = (x > x_max) ? x : x_max;
-				y_max = (y > y_max) ? y : y_max;
+				printf("x > x_max = %d\ny > y_max = %d\n\n", x, y);
 				coords[coords_i] = x;
 				coords[coords_i + 1] = y;
 				coords_i += 2;
@@ -90,15 +89,18 @@ int		*read_piece(int i, char **map)
 		}
 		y++;
 	}
-	coords[9] = x_max;
-	coords[10] = y_max;
 	y = 0;
 	while (y < 8)
 	{
 		coords[y] = coords[y] - min_x;
 		coords[y + 1] = coords[y + 1] - min_y;
+		x_max = (coords[y] > x_max) ? coords[y] : x_max;
+		y_max = (coords[y + 1] > y_max) ? coords[y + 1] : y_max;
 		y += 2;
 	}
+	printf("xmax assignation : %d, ymax assignation : %d\n", x_max, y_max);
+	coords[9] = x_max + 1;
+	coords[10] = y_max + 1;
 	return (coords);
 }
 
