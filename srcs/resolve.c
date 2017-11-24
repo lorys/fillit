@@ -6,14 +6,14 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/23 10:40:16 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/24 17:05:35 by mduhoux                                  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 #include <stdio.h>
 
-static int	inttab(char **tab)
+int	inttab(char **tab)
 {
 	int i;
 
@@ -57,11 +57,15 @@ int		*read_piece(int i, char **map)
 	int		x;
 	int		*coords;
 	int		coords_i;
+	int		x_max;
+	int		y_max;
 
 	y = 0;
 	min_x = -1;
 	min_y = -1;
-	coords = (int *)malloc(sizeof(int) * 9);
+	x_max = 0;
+	y_max = 0;
+	coords = (int *)malloc(sizeof(int) * 11);
 	coords_i = 0;
 	coords[8] = i;
 	while (y < 4)
@@ -75,6 +79,9 @@ int		*read_piece(int i, char **map)
 				min_x = (min_x > x) ? x : min_x;
 				min_y = (min_y == -1) ? y : min_y;
 				min_y = (min_y > y) ? y : min_y;
+
+				x_max = (x > x_max) ? x : x_max;
+				y_max = (y > y_max) ? y : y_max;
 				coords[coords_i] = x;
 				coords[coords_i + 1] = y;
 				coords_i += 2;
@@ -83,6 +90,8 @@ int		*read_piece(int i, char **map)
 		}
 		y++;
 	}
+	coords[9] = x_max;
+	coords[10] = y_max;
 	y = 0;
 	while (y < 8)
 	{
@@ -96,15 +105,11 @@ int		*read_piece(int i, char **map)
 char		**put_piece(int x, int y, int *piece, char **map)
 {
 	int	i;
-	int	max;
 
-	max = ft_sqrt(inttab(map));
 	i = 0;
 	while (i < 8)
 	{
-		if (map[y + piece[i + 1]][x + piece[i]] != '.' \
-				|| map[y + piece[i + 1]][x + piece[i]] == '\0' \
-				|| map[y + piece[i + 1]] == NULL)
+		if (map[y + piece[i + 1]][x + piece[i]] != '.')
 			return (NULL);
 		i = i + 2;
 	}
