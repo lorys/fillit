@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/24 18:39:10 by mduhoux                                  */
+/*   Updated: 2017/11/25 14:08:25 by mduhoux                                  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,29 @@ int		main(int argc, char **argv)
 	count_piece = 1;
 	pieces_map = ft_strsplit(read_file(argv[1]), '\n');
 	map = map_generator(pieces_map);
-	display_map(map);
-	ft_putstr("\n------------------------------------\n");
-	while (count_piece < inttab(pieces_map)/4)
+	while (count_piece <= inttab(pieces_map)/4)
 	{
-		x = 0;
-		y = 0;
+		y = inttab(map);
 		pieces = read_piece(count_piece, pieces_map);
-		while (y + 1 < inttab(map) && y <= (inttab(map) - pieces[10]))
+		while (y >= 0)
 		{
-			x = 0;
-			while (map[y][x] != '\0' && x <= ft_strlen(map[y]) - pieces[9])
+			x = ft_strlen(map[0]) - 1;
+			while (x >= 0)
 			{
-				usleep(60000);
-				system("clear");
 				clear_piece(pieces, map);
 				if (put_piece(x, y, pieces, map) != NULL)
 				{
 					x_last = x;
 					y_last = y;
 				}
-				display_map(map);
-				printf("x : %d\ny : %d\ntabmap : %d\n", x, y, inttab(map));
-				printf("max_y : %d\nmax_x : %d\n", (pieces[10]), (pieces[9]));
-				x++;
+				x--;
 			}
-			y++;
+			y--;
 		}
 		put_piece(x_last, y_last, pieces, map);
 		count_piece++;
 	}
+	system("clear");
+	display_map(map);
 	return (0);
 }
