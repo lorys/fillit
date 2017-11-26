@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 15:17:39 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 15:39:45 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ int		main(int argc, char **argv)
 	char		**pieces_map;
 	int			map_len;
 
+	if (check_pieces(read_file(argv[1])) == -1)
+	{
+		ft_putstr("error\n");
+		return (0);
+	}
 	pieces_map = ft_strsplit(read_file(argv[1]), '\n');
 	map_len = ft_sqrt(inttab(pieces_map));
 	map = map_generator(map_len);
