@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:35:04 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/20 21:51:34 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 17:00:17 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_realloc(char *src, size_t new_size);
-int				ft_sqrt(int nb);
+int					ft_sqrt(int nb);
 
 #endif
