@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/25 14:07:30 by mduhoux                                  */
+/*   Updated: 2017/11/26 10:37:14 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ char		**map_generator(char **map)
 	int		map_len;
 	int		x;
 
-	map_len = ft_sqrt(inttab(map)) + 1;
-	printf("nombre de diez : %d\nracine carree de diez : %d\n", inttab(map), ft_sqrt(inttab(map)));
+	map_len = ft_sqrt(inttab(map));
 	newmap = (char **)malloc(sizeof(char *) * (map_len + 1));
 	newmap[map_len] = NULL;
 	i = 0;
@@ -81,7 +80,6 @@ int		*read_piece(int i, char **map)
 				min_y = (min_y == -1) ? y : min_y;
 				min_y = (min_y > y) ? y : min_y;
 
-				printf("x > x_max = %d\ny > y_max = %d\n\n", x, y);
 				coords[coords_i] = x;
 				coords[coords_i + 1] = y;
 				coords_i += 2;
