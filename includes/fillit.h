@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 02:02:58 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/24 16:22:21 by mduhoux                                  */
+/*   Updated: 2017/11/26 13:06:53 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef	struct	s_int
 	int			diez_counter;
 	int			diez_max;
 }				t_int;
-char			**map_generator(char **map);
+char			**map_generator(int len);
 char			*read_file(char *filepath);
 int				*read_piece(int i, char **map);
 int				check_pieces(char *content);

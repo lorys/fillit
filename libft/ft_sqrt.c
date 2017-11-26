@@ -4,6 +4,6 @@ int	ft_sqrt(int nb)
 
 	i = 0;
 	while ((i * i) < nb)
-		i = i + 1;
+		i += 1;
 	return (i);
 }

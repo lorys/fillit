@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 10:36:24 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 15:11:01 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,27 @@ int		find_all_pieces(char **pieces_map, char **map)
 	return (0);
 }
 
+char		**map_realloc(int len, char **map)
+{
+	char	**map_tmp;
+	int 	y;
+	int 	x;
+
+	map_tmp = map_generator(len + 1);
+	y = 0;
+	while (map[y] != NULL)
+	{
+		x = 0;
+		while (map[y][x] != '\0')
+		{
+			map_tmp[y][x] = map[y][x];
+			x++;
+		}
+		y++;
+	}
+	return (map_tmp);
+}
+
 int		solver(char **pieces_map, char **map, int count_pieces)
 {
 	int		y;
@@ -64,13 +85,11 @@ int		solver(char **pieces_map, char **map, int count_pieces)
 		x = 0;
 		while (x <= ft_strlen(map[0]))
 		{
-			usleep(250000);
-			system("clear");
-			display_map(map);
 			clear_piece(pieces, map);
 			if (put_piece(x, y, pieces, map) != NULL && \
 				solver(pieces_map, map, count_pieces + 1))
-				return (1);
+				if (find_all_pieces(pieces_map, map))
+					return (1);
 			x++;
 		}
 		y++;
@@ -82,10 +101,16 @@ int		main(int argc, char **argv)
 {
 	char		**map;
 	char		**pieces_map;
+	int			map_len;
 
 	pieces_map = ft_strsplit(read_file(argv[1]), '\n');
-	map = map_generator(pieces_map);
-	solver(pieces_map, map, 1);
+	map_len = ft_sqrt(inttab(pieces_map));
+	map = map_generator(map_len);
+	while (solver(pieces_map, map, 1) == 0)
+	{
+		map_len++;
+		map = map_generator(map_len);
+	}
 	display_map(map);
 	return (0);
 }

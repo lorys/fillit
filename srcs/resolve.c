@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 10:37:14 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 15:11:00 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	inttab(char **tab)
 	return (i);
 }
 
-char		**map_generator(char **map)
+char		**map_generator(int len)
 {
 	char	**newmap;
 	int		i;
 	int		map_len;
 	int		x;
 
-	map_len = ft_sqrt(inttab(map));
+	map_len = len;
 	newmap = (char **)malloc(sizeof(char *) * (map_len + 1));
 	newmap[map_len] = NULL;
 	i = 0;

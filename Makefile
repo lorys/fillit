@@ -6,7 +6,7 @@
 #    By: maduhoux <maduhoux@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 15:54:41 by maduhoux          #+#    #+#              #
-#    Updated: 2017/11/22 16:17:39 by maduhoux         ###   ########.fr        #
+#    Updated: 2017/11/26 11:39:59 by llopez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ OBJDIR	=	obj/
 SRCDIR	=	srcs/
 FILES	=	file_checker.c \
 			handle_file.c \
-			resolve.c
+			resolve.c \
+			display.c
 INCLUDE	=	includes/
 SRC		=	$(FILES:%.c=$(SRCDIR)%.c)
 OBJ		=	$(FILES:%.c=$(OBJDIR)%.o)
@@ -25,11 +26,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft/
-	gcc -o $(NAME) $(OBJ) -Llibft -lft
-
-maintest: $(OBJ)
-	make -C libft/
-	gcc -o $(NAME) $(OBJ) main/main_test_error.c -I $(INCLUDE) -Llibft -lft
+	gcc -o $(NAME) $(OBJ) main/main.c -Llibft -lft
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p $(OBJDIR)
