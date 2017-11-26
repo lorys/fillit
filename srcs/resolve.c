@@ -6,14 +6,13 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 23:36:35 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 15:11:00 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 16:52:50 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
-#include <stdio.h>
 
-int	inttab(char **tab)
+int				inttab(char **tab)
 {
 	int i;
 
@@ -23,7 +22,7 @@ int	inttab(char **tab)
 	return (i);
 }
 
-char		**map_generator(int len)
+char			**map_generator(int len)
 {
 	char	**newmap;
 	int		i;
@@ -49,60 +48,59 @@ char		**map_generator(int len)
 	return (newmap);
 }
 
-int		*read_piece(int i, char **map)
+static void		piece_placer(t_resolve *lst, int i, char **map)
 {
-	int		min_x;
-	int		min_y;
-	int		y;
-	int		x;
-	int		*coords;
-	int		coords_i;
-	int		x_max;
-	int		y_max;
-
-	y = 0;
-	min_x = -1;
-	min_y = -1;
-	x_max = 0;
-	y_max = 0;
-	coords = (int *)malloc(sizeof(int) * 11);
-	coords_i = 0;
-	coords[8] = i;
-	while (y < 4)
+	while (lst->y < 4)
 	{
-		x = 0;
-		while (x < 4)
+		lst->x = 0;
+		while (lst->x < 4)
 		{
-			if (map[((i * 4) - 4) + y][x] == '#')
+			if (map[((i * 4) - 4) + lst->y][lst->x] == '#')
 			{
-				min_x = (min_x == -1) ? x : min_x;
-				min_x = (min_x > x) ? x : min_x;
-				min_y = (min_y == -1) ? y : min_y;
-				min_y = (min_y > y) ? y : min_y;
-
-				coords[coords_i] = x;
-				coords[coords_i + 1] = y;
-				coords_i += 2;
+				lst->min_x = (lst->min_x == -1) ? lst->x : lst->min_x;
+				lst->min_x = (lst->min_x > lst->x) ? lst->x : lst->min_x;
+				lst->min_y = (lst->min_y == -1) ? lst->y : lst->min_y;
+				lst->min_y = (lst->min_y > lst->y) ? lst->y : lst->min_y;
+				lst->coords[lst->coords_i] = lst->x;
+				lst->coords[lst->coords_i + 1] = lst->y;
+				lst->coords_i += 2;
 			}
-			x++;
+			lst->x++;
 		}
-		y++;
+		lst->y++;
 	}
-	y = 0;
-	while (y < 8)
-	{
-		coords[y] = coords[y] - min_x;
-		coords[y + 1] = coords[y + 1] - min_y;
-		x_max = (coords[y] > x_max) ? coords[y] : x_max;
-		y_max = (coords[y + 1] > y_max) ? coords[y + 1] : y_max;
-		y += 2;
-	}
-	coords[9] = x_max + 1;
-	coords[10] = y_max + 1;
-	return (coords);
 }
 
-char		**put_piece(int x, int y, int *piece, char **map)
+int				*read_piece(int i, char **map)
+{
+	t_resolve	lst;
+
+	lst.y = 0;
+	lst.min_x = -1;
+	lst.min_y = -1;
+	lst.x_max = 0;
+	lst.y_max = 0;
+	lst.coords = (int *)malloc(sizeof(int) * 11);
+	lst.coords_i = 0;
+	lst.coords[8] = i;
+	piece_placer(&lst, i, map);
+	lst.y = 0;
+	while (lst.y < 8)
+	{
+		lst.coords[lst.y] = lst.coords[lst.y] - lst.min_x;
+		lst.coords[lst.y + 1] = lst.coords[lst.y + 1] - lst.min_y;
+		lst.x_max = (lst.coords[lst.y] > lst.x_max) ? \
+		lst.coords[lst.y] : lst.x_max;
+		lst.y_max = (lst.coords[lst.y + 1] > lst.y_max) ? \
+		lst.coords[lst.y + 1] : lst.y_max;
+		lst.y += 2;
+	}
+	lst.coords[9] = lst.x_max + 1;
+	lst.coords[10] = lst.y_max + 1;
+	return (lst.coords);
+}
+
+char			**put_piece(int x, int y, int *piece, char **map)
 {
 	int	i;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 17:02:14 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 11:32:16 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 16:31:26 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	display_map(char **map)
 	}
 }
 
-char		**clear_map(char **map)
+char	**clear_map(char **map)
 {
 	int x;
 	int y;
@@ -52,7 +52,7 @@ char		**clear_map(char **map)
 	return (map);
 }
 
-char		**clear_piece(int *piece, char **map)
+char	**clear_piece(int *piece, char **map)
 {
 	int	x;
 	int	y;

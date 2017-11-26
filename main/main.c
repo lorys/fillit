@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 15:39:45 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 16:52:08 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../includes/fillit.h"
 #include <unistd.h>
-
-int		system(char const *command);
 
 int		find_pieces(char nbr_pieces, char **map)
 {
@@ -42,9 +39,9 @@ int		find_all_pieces(char **pieces_map, char **map)
 	int		count;
 
 	count = 1;
-	while (find_pieces(count, map) == 1  && count <= (inttab(pieces_map)/4))
+	while (find_pieces(count, map) == 1 && count <= (inttab(pieces_map) / 4))
 		count++;
-	if (count == (inttab(pieces_map)/4)+1)
+	if (count == (inttab(pieces_map) / 4) + 1)
 		return (1);
 	return (0);
 }

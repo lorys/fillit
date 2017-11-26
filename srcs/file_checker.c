@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit_checker.c                                   :+:      :+:    :+:   */
+/*   file_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maduhoux <maduhoux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 07:44:32 by maduhoux          #+#    #+#             */
-/*   Updated: 2017/11/26 15:38:30 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 16:52:16 by maduhoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static int		diez_finder(char *content, int i, int x, int y)
 {
