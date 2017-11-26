@@ -6,7 +6,7 @@
 /*   By: llopez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 15:11:01 by llopez           ###   ########.fr       */
+/*   Updated: 2017/11/26 15:17:39 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,6 @@ int		find_all_pieces(char **pieces_map, char **map)
 	if (count == (inttab(pieces_map)/4)+1)
 		return (1);
 	return (0);
-}
-
-char		**map_realloc(int len, char **map)
-{
-	char	**map_tmp;
-	int 	y;
-	int 	x;
-
-	map_tmp = map_generator(len + 1);
-	y = 0;
-	while (map[y] != NULL)
-	{
-		x = 0;
-		while (map[y][x] != '\0')
-		{
-			map_tmp[y][x] = map[y][x];
-			x++;
-		}
-		y++;
-	}
-	return (map_tmp);
 }
 
 int		solver(char **pieces_map, char **map, int count_pieces)
