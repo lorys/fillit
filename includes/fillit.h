@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 02:02:58 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 16:54:51 by maduhoux         ###   ########.fr       */
+/*   Updated: 2017/11/27 10:32:30 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void			display_map(char **map);
 char			**clear_map(char **map);
 char			**clear_piece(int *piece, char **map);
 int				inttab(char **tab);
+void			free_map(char **map);
 
 #endif

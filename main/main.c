@@ -6,7 +6,7 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:52:42 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 16:52:08 by maduhoux         ###   ########.fr       */
+/*   Updated: 2017/11/27 10:32:02 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ int		main(int argc, char **argv)
 		map = map_generator(map_len);
 	}
 	display_map(map);
+	free_map(map);
 	return (0);
 }

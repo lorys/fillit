@@ -6,11 +6,26 @@
 /*   By: llopez <llopez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 17:02:14 by llopez            #+#    #+#             */
-/*   Updated: 2017/11/26 16:31:26 by maduhoux         ###   ########.fr       */
+/*   Updated: 2017/11/27 10:31:49 by llopez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
+
+void	free_map(char **map)
+{
+	int y;
+	int x;
+
+	x = 0;
+	y = 0;
+	while (map[y] != NULL)
+	{
+		free(map[y]);
+		y++;
+	}
+	free(map);
+}
 
 void	display_map(char **map)
 {
